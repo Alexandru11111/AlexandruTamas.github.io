@@ -1,3 +1,11 @@
+""" 
+Project Description: Diabetes Analysis and Prediction
+Overview
+This project focuses on analyzing and predicting diabetes outcomes using a dataset from a study on diabetes.
+The data contains various health metrics which are instrumental in understanding the factors that contribute significantly to diabetes. 
+The project employs both supervised and unsupervised machine learning techniques to predict diabetes outcomes and to cluster the patients into distinct groups based on their health metrics. 
+"""
+
 library(tidyverse)
 library(psych)
 require(dplyr)
@@ -67,7 +75,7 @@ library(caret)
 
 
 
-  #Splitting data for training and for prediction 
+  #Splitting data for training and prediction 
   
   library(caret)
   
@@ -98,7 +106,7 @@ library(caret)
   print(confusionMatrix)
   print(paste("Accuracy:", accuracy))
   
-  # print(confusionMatrix) #This illustrates our accuracy by highlights the amout of errors and successes the model made in regards to our 2 groups. 
+##### print(confusionMatrix) #This illustrates our accuracy by highlights the amout of errors and successes the model made in regards to our 2 groups. 
  # Actual
 # Predicted  0  1
          # 0 84 23
@@ -151,5 +159,5 @@ library(caret)
                 
     
     
-                                #We found a significant diffrance, next setp is to preforme T-Test to find what cluster contains the diffrance // Project ends here.
+                                #We found a significant difference, The next step is to perform a T-Test to find what cluster contains the difference// Project ends here.
     
