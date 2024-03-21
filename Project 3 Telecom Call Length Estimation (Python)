@@ -1,0 +1,63 @@
+ 
+                                                                                                          ######################## Description #################################### 
+                                                                                                          ######################## Description #################################### 
+                                                                                                          ######################## Description ####################################
+
+"""
+Project: Telecom Call Length Estimation
+
+Description:
+This is a real-life project that was developed for a telecom company interested in understanding the duration of their customer calls. The original dataset comprises transcribed call data but lacks direct information about call lengths. 
+To address this, the project implements a Python script to estimate call durations based on the number of words in each call transcript.
+
+The script processes an Excel file containing the transcribed calls and then estimates call lengths using the word count method. 
+Each call's estimated duration is categorized into clusters based on its length in minutes.
+
+Implementation:
+The script is written in Python and utilizes the pandas and numpy libraries for data manipulation and calculations.
+
+Key Components:
+- Reads call data from an Excel file.
+- Estimates call lengths for each transcript in the 'Kund' column by calculating word count and converting this to estimated minutes based on a rate of 110 words per minute.
+- Categorizes estimated call lengths into defined clusters (1-3 min, 4-7 min, 8-12 min, and 13+ min).
+- Saves the modified data, including estimated lengths and categories, back to the Excel file.
+
+"""
+
+
+
+    
+import pandas as pd
+import numpy as np
+
+# Path to your Excel file
+excel_file_path = r'C:\Users\Alexandru\Desktop\progproj\data.xlsx'
+
+
+# Read the Excel file
+df = pd.read_excel(excel_file_path)
+
+# Calculations for call length estimation based on words in the 'kund' column
+if 'Kund' in df.columns:
+    # Calculate the number of words in each call's text
+    df['WordCount'] = df['Kund'].apply(lambda x: len(str(x).split()))
+    
+    # Estimate the call length in minutes
+    df['EstimatedCallLength'] = df['WordCount'] / 110
+    
+    # Segment the estimated call length into clusters
+    conditions = [
+        (df['EstimatedCallLength'] <= 3),
+        (df['EstimatedCallLength'] > 3) & (df['EstimatedCallLength'] <= 7),
+        (df['EstimatedCallLength'] > 7) & (df['EstimatedCallLength'] <= 12),
+        (df['EstimatedCallLength'] > 12)
+    ]
+    choices = ['1-3 min', '4-7 min', '8-12 min', '13+ min']
+    df['CallLengthCategory'] = np.select(conditions, choices, default='Not Categorized')
+
+    # Saveing the modified DataFrame back to Excel
+    df.to_excel(excel_file_path, index=False)
+
+
+#End 
+ 
