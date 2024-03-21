@@ -26,7 +26,7 @@ library(caret)
   summary(data)
 
 
-  # Checking if dataset cointasin missing values
+  # Checking if the dataset contains missing values
   sum(is.na(data))
   
   #Visuals 
@@ -40,7 +40,7 @@ library(caret)
   ggplot(data, aes(x=BloodPressure , y=Insulin)) + 
     geom_boxplot() +
     theme_minimal() +
-    labs(title = "Balance Distribution by Marital Status", 
+    labs(title = "Balance Distribution by diabetes", 
          x = "BloodPressure", 
          y = "Insulin")
 
@@ -71,7 +71,7 @@ library(caret)
   
   library(caret)
   
-  # Splitting data into training and test sets i allocate 80% of the current dataset into training and 20% into the predictionset i accordance with standard praxis 
+  # Splitting data into training and test sets i allocate 80% of the current dataset into training and 20% into the predictionset in accordance with standard praxis 
   set.seed(123) # For reproducibility
   splitIndex <- createDataPartition(data$Outcome, p = 0.8, list = FALSE)
   trainingData <- data[splitIndex, ]
@@ -98,21 +98,21 @@ library(caret)
   print(confusionMatrix)
   print(paste("Accuracy:", accuracy))
   
-  # print(confusionMatrix)
+  # print(confusionMatrix) #This illustrates our accuracy by highlights the amout of errors and successes the model made in regards to our 2 groups. 
  # Actual
 # Predicted  0  1
- # 0 84 23
-  # 1 17 29
+         # 0 84 23
+         # 1 17 29
   #>   print(paste("Accuracy:", accuracy))
   #[1] "Accuracy: 0.738562091503268"
    
-  # My model managed to predict diabites with a 73.9% accuracy.
+  # My model managed to predict diabetes with a 73.9% accuracy. 
   
   
                             ##################### Clustering using unsupervised  machine learning algorithms (K-mean) )###########################
   
 
-  # Selecting numeric variables /// Variables should be scaled to have similar ranges to ensure that no variable dominates the clustering algorithm due to its scale
+  # Selecting numeric variables /// Variables need to be scaled to have similar ranges to ensure that no variable dominates the clustering algorithm due to its scale
   data_for_clustering <- data %>% select(BloodPressure, Pregnancies, BMI, Glucose)
     
    # Scale the data
@@ -137,10 +137,8 @@ library(caret)
     
     
                                                         ############### VARIANCE TEST ANOVA ##################   
-    #hainv identiryed new groups based on variables of intrest we new can use a variance test to evalute diffrances between groups. 
-    #Is there any diffrance in diabetes betwwen groups?
-
-    # Assuming 'kmeans_result' is the output of your kmeans clustering
+    #having identified new groups based on variables of interest we new can use a variance test to evaluate differences between groups. 
+    #are there any differences in diabetes between groups?
    
     
      anova_result <- aov(Outcome ~ cluster, data = data)
