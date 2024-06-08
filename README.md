@@ -2,7 +2,7 @@
 
 
 # Portfolio introduction 
-Hi and welcome Welcome to my portfolio! As a passionate data analyst, I've dedicated my career to turning complex data into actionable insights. With a foundation in SQL, Python, and R, I possess a versatile skill set that allows me to navigate through data with ease, whether it's for cleaning, manipulation, or analysis. 
+Hi and welcome to my portfolio! As a passionate data analyst, I've dedicated my career to turning complex data into actionable insights. With a foundation in SQL, Python, and R, I possess a versatile skill set that allows me to navigate through data with ease, whether it's for cleaning, manipulation, or analysis. 
 My proficiency extends to powerful visualization and business intelligence tools like Power BI and Looker Studio, enabling me to craft compelling stories from data that drive strategic decisions. My expertise lies in a range of data analysis disciplines, including predictive modeling, to forecast future trends; statistical analysis, through which I uncover hidden patterns and relationships; and data visualization, where I transform complex results into intuitive and informative graphics. 
 These skills have empowered me to contribute significantly to projects across various domains, delivering insights that have fueled growth, efficiency, and innovation.
 
